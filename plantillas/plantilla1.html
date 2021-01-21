@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primera plantilla</title>
 </head>
-
+{#COMENTARIO DE UNA LINEA#}
+{% comment %}
+    #COMENTARIO DE VARIAS LINEAS
+{% endcomment %}
 <body>
+
+    {% include "barra.html" %}  {# Aquí estoy incrustando el documento barra.html #}
+
     <!-- Varios ejemplo de cómo acceder a la información de las variables -->
     <h1>Primer Template Creado con django</h1>
     <h3>Podemos obtener datos desde variables:</h3>
@@ -55,6 +57,18 @@
             <p>No hay elementos por ahora.</p>
         {% endif %}
     </ul>
+
+    <!-- Renderizado condicional -->
+    <h3>La sgte.linea es un renderizado condicional. Si la variable='Carlos' mostrará el nombre, de lo contrario muestra 'vacante'</h3>
+    {% if nombre_persona == 'Carlos' %}
+        <h1>Desarrollador a cargo: {{nombre_persona}} {{apellido_persona}}</h1>
+    {% else %}
+        <h1 style="color: red;">Desarrollador a cargo: Cargo Vacante</h1>
+    {% endif %}
+
+
+
+
 </body>
 
 </html>

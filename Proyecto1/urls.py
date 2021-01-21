@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import saludo, despedida, fecha, calculaEdad
+from Proyecto1.views import saludo, despedida, fecha, calculaEdad, curso_django, curso_js
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,4 +11,6 @@ urlpatterns = [
     path('fecha/', fecha),
     #path('edadfutura/<int:anio>', calculaEdad),   <---con un parámetro
     path('edadfutura/<int:edad>/<int:anio>', calculaEdad),
+    path('plantilla_hija/', curso_django),
+    path('plantilla_hija2/', curso_js)
 ]
