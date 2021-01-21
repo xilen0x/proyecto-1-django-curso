@@ -8,7 +8,53 @@
 </head>
 
 <body>
+    <!-- Varios ejemplo de cómo acceder a la información de las variables -->
     <h1>Primer Template Creado con django</h1>
+    <h3>Podemos obtener datos desde variables:</h3>
+    <p>{{nombre_persona}} {{apellido_persona}}</p>
+    <br>
+    <p>Fecha y hora actual: {{la_fecha}}</p>
+    <p>Solo el día: {{la_fecha.day}}</p>
+    <p>Día, mes y año: {{la_fecha.day}}/{{la_fecha.month}}/{{la_fecha.year}}</p>
+    <br>
+    <h3>Podemos obtener datos desde listas:</h3>
+    <p>Toda la lista: {{temas}}</p>
+    <p>Un elemento de la lista: {{temas.1}}</p>
+    <br>
+    <h3>Podemos obtener datos desde clases:</h3>
+    <p>Usuario: {{clave_usuario1}}. Cargo: {{clave_cargo1}}. Salario: {{clave_salario1}}</p>
+    <p>Usuario: {{clave_usuario2}}. Cargo: {{clave_cargo2}}. Salario: {{clave_salario2}}</p>
+    <br>
+
+    <h3>Podemos obtener datos utilizando ciclos:</h3>
+    <p><strong>Formato horizontal:</strong></p>
+    {% for elem in temas %} 
+        {{elem}} 
+    {% endfor %}
+    <br>
+    <p><strong>Formato vertical:</strong></p>
+    {% for elem in temas %}
+        <p>{{elem}}</p>
+    {% endfor %}
+    <br>
+    <p><strong>Formato lista:</strong></p>
+    <ul>
+        {% for elem in temas %}
+            <li>{{elem}}</li>
+        {% endfor %}
+    </ul>
+
+    <p><strong>Ejemplo utilizando ciclo if:</strong></p>
+    <ul>
+        <!-- si existe y tiene elementos -->
+        {% if temas %} 
+            {% for elem in temas %}
+                <li>{{elem}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No hay elementos por ahora.</p>
+        {% endif %}
+    </ul>
 </body>
 
 </html>
